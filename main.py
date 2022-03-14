@@ -1,15 +1,16 @@
 from flask import Flask
 from flask import request
 from guesslang import Guess
+import os
 
 app = Flask(__name__)
 guess = Guess()
 
-@app.route("/")
+@app.route('/'+os.envrion['EF_NAME'])
 def hello():
     return "Hello from Python!"
 
-@app.route('/', methods = ['POST'])
+@app.route('/'+os.envrion['EF_NAME'], methods = ['POST'])
 def make_guess():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
@@ -23,9 +24,7 @@ def make_guess():
         return(name)
     else:
         return 'Content-Type not supported!'
-
-def run():
-    app.run(host='0.0.0.0')
+    
 
 if __name__ == "__main__":
-    run()
+    app.run(host='0.0.0.0')
