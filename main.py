@@ -6,11 +6,11 @@ import os
 app = Flask(__name__)
 guess = Guess()
 
-@app.route('/'+os.envrion['EF_NAME'])
+@app.route('/'+os.environ['EF_NAME'])
 def hello():
     return "Hello from Python!"
 
-@app.route('/'+os.envrion['EF_NAME'], methods = ['POST'])
+@app.route('/'+os.environ['EF_NAME'], methods = ['POST'])
 def make_guess():
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
