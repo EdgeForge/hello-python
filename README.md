@@ -12,5 +12,6 @@ python main.py
 
 ```bash
 myProject="projectid"
-curl https://api-default-${myProject}.dev.edgeforge.com/wafw00f -d 'https://f5.com' -H "Content-type: text/plain"
+functionName="hello-python3-6e36c8"
+curl https://${functionName}-${myProject}.xc.edgeforge.com/wafw00f -d 'https://f5.com' -H "Content-type: text/plain"
 ```
